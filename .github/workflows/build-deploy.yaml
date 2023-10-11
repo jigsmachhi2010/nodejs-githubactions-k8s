@@ -28,17 +28,17 @@ jobs:
       - name: Push user service docker image
         run: docker push "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
 
-  deploy:
-    needs: [create-user-image]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: kubectl - Google Cloud GKE cluster.
-        uses: ameydev/gke-kubectl-action@main
-        env:
-          PROJECT_ID: ${{ secrets.PROJECT_ID }}
-          APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-          CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
-          ZONE_NAME: us-central1-c
-        with:
-          args: apply -f k8s/
+  # deploy:
+  #   needs: [create-user-image]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: kubectl - Google Cloud GKE cluster.
+  #       uses: ameydev/gke-kubectl-action@main
+  #       env:
+  #         PROJECT_ID: ${{ secrets.PROJECT_ID }}
+  #         APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+  #         CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
+  #         ZONE_NAME: us-central1-c
+  #       with:
+  #         args: apply -f k8s/
