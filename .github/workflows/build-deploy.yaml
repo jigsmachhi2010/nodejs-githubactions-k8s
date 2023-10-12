@@ -37,6 +37,6 @@ jobs:
         with:
           kubeconfig: ${{ secrets.KUBECONFIG }}
       - name: Print current working directory
-        run: echo "Current directory: $(pwd)"
+        run: ls -l
       - name: Apply Kubernetes manifests
         run: kubectl apply -f ../k8s/
