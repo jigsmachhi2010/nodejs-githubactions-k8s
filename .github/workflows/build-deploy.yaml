@@ -36,7 +36,5 @@ jobs:
         uses: azure/k8s-set-context@v1
         with:
           kubeconfig: ${{ secrets.KUBECONFIG }}
-      - name: Print current working directory
-        run: ls -l
       - name: Apply Kubernetes manifests
         run: kubectl apply -f ../k8s/
