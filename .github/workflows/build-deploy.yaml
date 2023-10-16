@@ -37,4 +37,4 @@ jobs:
         with:
           kubeconfig: ${{ secrets.KUBECONFIG }}
       - name: Apply Kubernetes manifests
-        run: kubectl apply -f ../k8s/
+        run: kubectl apply -f k8s/
