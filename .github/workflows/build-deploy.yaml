@@ -32,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [create-user-image]
     steps:
+      - uses: actions/checkout@main
       - name: Configure kubectl
         uses: azure/k8s-set-context@v1
         with:
@@ -39,4 +40,4 @@ jobs:
       - name: List contents of k8s directory
         run: ls -R nodejs-githubactions-k8s/k8s/
       - name: Apply Kubernetes manifests
-        run: kubectl apply -f nodejs-githubactions-k8s/k8s/
+        run: kubectl apply -f k8s/
