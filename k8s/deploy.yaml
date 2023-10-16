@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: server-user-pod
+  name: jigs-test-pod
   labels:
-    name: server-user-pod
-    app: ctse-app
+    name: jigs-test-pod
+    app: nodejs-app
 spec:
   containers:
-    - name: server-user-pod
-      image: 19980517/ctse-user
+    - name: jigs-test-pod
+      image: jigs221/nodejs-githubactions-k8s
       ports:
-        - containerPort: 8070
+        - containerPort: 5000
