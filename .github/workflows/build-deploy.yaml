@@ -37,7 +37,6 @@ jobs:
         uses: azure/k8s-set-context@v1
         with:
           kubeconfig: ${{ secrets.KUBECONFIG }}
-      - name: List contents of k8s directory
-        run: ls -R nodejs-githubactions-k8s/k8s/
+
       - name: Apply Kubernetes manifests
         run: kubectl apply -f k8s/
